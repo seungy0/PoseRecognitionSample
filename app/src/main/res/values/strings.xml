@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PoseRecognitionSample</string>
+    <string name="no_camera_access">no_camera_access</string>
+</resources>
