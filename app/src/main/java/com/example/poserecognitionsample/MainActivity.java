@@ -23,6 +23,7 @@ import com.google.mediapipe.components.PermissionHelper;
 import com.google.mediapipe.formats.proto.LandmarkProto;
 import com.google.mediapipe.framework.AndroidAssetUtil;
 import com.google.mediapipe.framework.PacketGetter;
+import com.google.mediapipe.framework.ProtoUtil;
 import com.google.mediapipe.glutil.EglManager;
 import com.google.protobuf.InvalidProtocolBufferException;
 
@@ -86,7 +87,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentViewLayoutResId());
-
+        ProtoUtil.registerTypeName(
+                LandmarkProto.NormalizedLandmarkList.class,
+                "mediapipe.NormalizedLandmarkList"
+        );
         try {
             applicationInfo =
                     getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
